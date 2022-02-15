@@ -10,17 +10,17 @@ public class Animal {
     @Column(unique = true , nullable = false )
     
     private Long id;
-    private String nombreC;
+    private String nombre_comun;
     private String especie;
     private String color;
     
     
 //Nombre  Cientifico    
-    public String getNombreCientifico() {
-        return nombreC;
+    public String getNombreComun() {
+        return nombre_comun;
     }
-    public void setNombreCientifico(String nombreC) {
-        this.nombreC = nombreC;
+    public void setNombreComun(String nombre_comun) {
+        this.nombre_comun= nombre_comun;
     }
 //Especie 
     public String getEspecie() {
