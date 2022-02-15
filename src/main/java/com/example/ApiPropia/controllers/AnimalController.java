@@ -1,13 +1,14 @@
 package com.example.ApiPropia.controllers;
 
 import java.util.ArrayList;
-//import java.util.Optional;
+import java.util.Optional;
 
 import com.example.ApiPropia.models.Animal;
 import com.example.ApiPropia.services.AnimalService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,11 @@ public class AnimalController {
     @PostMapping()
     public String guardar(@RequestBody Animal animal){
         return animalService.guardar(animal);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Animal> ObtenerAnimalId(@PathVariable("id") Long id){
+        return animalService.Obtenerid(id);
     }
 }
 

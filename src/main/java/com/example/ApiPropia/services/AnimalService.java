@@ -6,6 +6,7 @@ import com.example.ApiPropia.repositories.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class AnimalService {
@@ -26,5 +27,9 @@ public class AnimalService {
        return "guardado correctamente";
    }
 
+
+   public Optional<Animal> Obtenerid(Long id){
+        return AnimalRepo.findById(id);
+    }
 
 }
