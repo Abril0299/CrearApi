@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController 
 @RequestMapping("/animales") //RUTA DONDE VAMOS A LLAMAR
@@ -35,6 +37,14 @@ public class AnimalController {
     @GetMapping("/{id}")
     public Optional<Animal> ObtenerAnimalId(@PathVariable("id") Long id){
         return animalService.Obtenerid(id);
+    }
+
+    @PostMapping("search")
+    public List<Animal> BuscarAnimal(@RequestParam("query") String query){
+        var nombre = animalService.Buscarporpalabra(query);
+        System.out.println(nombre);
+        return nombre;
+
     }
 }
 
